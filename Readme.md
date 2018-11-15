@@ -1,3 +1,8 @@
+<!-- default file list -->
+*Files to look at*:
+
+* **[Form1.cs](./CS/NewProject/Form1.cs)**
+<!-- default file list end -->
 # Dashboard - How to collect dashboard item controls (Winforms)
 
 
