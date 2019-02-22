@@ -1,4 +1,5 @@
-﻿using DevExpress.DashboardWin.Native;
+﻿using DevExpress.DashboardCommon;
+using DevExpress.DataAccess;
 using DevExpress.XtraEditors;
 using System;
 using System.Collections.Generic;
@@ -9,34 +10,28 @@ namespace NewProject
 {
     public partial class Form1 : XtraForm
     {
+        List<Data> ds = Data.CreateData();
         public Form1()
         {
             InitializeComponent();
+            dashboardViewer1.DataLoading += dashboardViewer1_DataLoading;
+            dashboardViewer1.DataSourceOptions.ObjectDataSourceLoadingBehavior = DocumentLoadingBehavior.LoadAsIs;
+            dashboardViewer1.DashboardSource = typeof(Dashboard1);
         }
 
-        private void dashboardViewer1_DataLoading(object sender, DevExpress.DataAccess.DataLoadingEventArgs e)
-        {
-            List<MyClass> list = CreateDataSource();
-            e.Data = list;
-        }
-        private static List<MyClass> CreateDataSource()
-        {
-            List<MyClass> list = new List<MyClass>(10);
-            Random _r = new Random();
-            for (int i = 0; i < list.Capacity; i++)
-                list.Add(new MyClass() { ID = i, Name = "Name" + i, Sales = (float)_r.NextDouble(), Date = DateTime.Now.AddDays(i)});
-            return list;
+        private void dashboardViewer1_DataLoading(object sender, DevExpress.DashboardCommon.DataLoadingEventArgs e) {
+            e.Data = ds;
         }
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            IEnumerable<Control> controls = ((IUnderlyingControlProvider)dashboardViewer1).GetUnderlyingControls();
+           DashboardItemCollection controls = dashboardViewer1.Dashboard.Items;
             PrintControlInfo(controls);
         }
-        private static void PrintControlInfo(IEnumerable<Control> controls)
+        private static void PrintControlInfo(IEnumerable<DashboardItem> controls)
         {
             StringBuilder stringBuilder = new StringBuilder();
-            foreach (Control control in controls)
+            foreach (DashboardItem control in controls)
                 stringBuilder.AppendLine(control.GetType().ToString());
             XtraMessageBox.Show(stringBuilder.ToString());
         }

@@ -3,11 +3,12 @@
 
 * **[Form1.cs](./CS/NewProject/Form1.cs)**
 <!-- default file list end -->
-# Dashboard - How to collect dashboard item controls (Winforms)
+# Dashboard - How to Iterate Through the Dashboard Item Collection
 
+This example demonstrates how to load a dashboard in a [DashboardViewer](https://docs.devexpress.com/Dashboard/116975) control, assign the object [data source](https://docs.devexpress.com/Dashboard/16914) and iterate over dashboard items to display the item type.
 
-Starting with version 14.2 this approach is obsolete. See the <a href="https://www.devexpress.com/Support/Center/p/Q464098">Grid Dashboard Item - Provide a way to save column width in the grid item</a> thread for more details.
+See also:
 
-<br/>
-
-
+* [Providing Data](https://docs.devexpress.com/Dashboard/16914)
+* [Designing Dashboard Items](https://docs.devexpress.com/Dashboard/12141)
+* [Access to Underlying Controls](https://docs.devexpress.com/Dashboard/18019)
