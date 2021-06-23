@@ -3,7 +3,7 @@
 
 * **[Form1.cs](./CS/NewProject/Form1.cs)**
 <!-- default file list end -->
-# Dashboard - How to Iterate Through the Dashboard Item Collection
+# Dashboard for WinForms - How to Iterate Through the Dashboard Item Collection
 
 This example demonstrates how to load a dashboard in a [DashboardViewer](https://docs.devexpress.com/Dashboard/116975) control, assign the object [data source](https://docs.devexpress.com/Dashboard/16914) and iterate over dashboard items to display the item type.
 
